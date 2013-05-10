@@ -135,13 +135,14 @@ operations must, under atomic consistency, be equivalent to a single
 serial (in order, one after the other) execution of all operations.</p>
 
 <p>This guarantee is very strong. It rules out, amongst other guarantees,
-<em>eventual consistency</em>, which allows a delay before a write becomes
+some <em>eventually consistent</em> executions, which might allow a delay before a write becomes
 visible. So under EC, you might have:</p>
 
 <pre><code>set(10), set(5), get() = 10
 </code></pre>
 
-<p>But this execution is invalid under atomic consistency.</p>
+<p>But this execution is invalid under atomic consistency. (All
+linearizable histories are eventually consistent, but the converse is not true).</p>
 
 <p>Atomic consistency also ensures that external communication about the
 value of a register is respected. That is, if I read X and tell you
