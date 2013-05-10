@@ -1,13 +1,13 @@
-The CAP FAQ
+h1. The CAP FAQ
 
-1. Where did the CAP Theorem come from?
+h2. 1. Where did the CAP Theorem come from?
 
 Dr. Eric Brewer gave a keynote speech at the Principles of Distributed
 Computing conference in 2000 called 'Towards Robust Distributed Systems'.
 
 [1] http://www.cs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf
 
-2. What does the CAP Theorem actually say?
+h2. 2. What does the CAP Theorem actually say?
 
 The CAP Theorem (henceforth 'CAP') says that it is impossible to build
 an implementation of read-write storage in an asynchronous network that
@@ -19,7 +19,7 @@ satisfies all of the following three properties:
 
 The next few items define some of the terms.
 
-What is 'read-write storage'?
+h2. 3. What is 'read-write storage'?
 
 The CAP Theorem specifically concerns itself with a theoretical
 construct called a _register_. A register is a data structure with two
@@ -28,7 +28,7 @@ operations:
 * set(X) sets the value of the register to X
 * get() returns the value in the register
 
-3. What does _atomic_ (or _linearizable_) mean?
+h2. 4. What does _atomic_ (or _linearizable_) mean?
 
 Atomic, or linearizable, consistency is a guarantee about what values
 it's ok to return when a client performs get() operations.
@@ -45,7 +45,7 @@ This guarantee is very strong. It rules out, amongst other guarantees,
 _eventual consistency_, which allows a delay before a write becomes
 visible. So under EC, you might have:
 
-set(10), set(5), get() = 10
+{{set(10), set(5), get() = 10}}
 
 But this execution is invalid under atomic consistency.
 
