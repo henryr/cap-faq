@@ -160,7 +160,7 @@ example) for that not to be true. In the following we write A: to mean that clie
 
 <p>even though it is equivalent to the following serial history:</p>
 
-<pre><code>B:set(5), B:get() = 5, A:set(10), B:get() = 10
+<pre><code>B:set(5), B:get() = 5, A:set(10), A:get() = 10
 </code></pre>
 
 <p>In the second example, if A tells B about the value of the register
@@ -305,7 +305,7 @@ system, where nodes have shared but not synchronised clocks and there
 is a bound on the processing time of every message, that it is still
 impossible to implement available atomic storage.</p>
 
-<p>However, the result from #8 does <em>not</em> hold in the
+<p>However, the result from #10 does <em>not</em> hold in the
 partially-synchronous model; it is possible to implement atomic
 storage that is available all the time, and consistent when all
 messages are delivered.</p>
