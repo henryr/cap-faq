@@ -176,7 +176,7 @@ from 1990 is available at [2].</p>
 <p>[1] <a href="http://en.wikipedia.org/wiki/Linearizability">http://en.wikipedia.org/wiki/Linearizability</a>
 [2] <a href="http://cs.brown.edu/%7Emph/HerlihyW90/p463-herlihy.pdf">http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf</a></p>
 
-<h2>4. What does <em>asynchronous</em> mean?</h2>
+<h2>5. What does <em>asynchronous</em> mean?</h2>
 
 <p>An <em>asynchronous</em> network is one in which there is no bound on how
 long messages may take to be delivered by the network or processed by
@@ -184,7 +184,7 @@ a machine. The important consequence of this property is that there's
 no way to distinguish between a machine that has failed, and one whose
 messages are getting delayed.</p>
 
-<h2>5. What does <em>available</em> mean?</h2>
+<h2>6. What does <em>available</em> mean?</h2>
 
 <p>A data store is available if and only if all get and set requests
 eventually return a response that's part of their specification. This
@@ -200,7 +200,7 @@ because 100% of the requests must return a response (there's no
 'degree of availability' here), but weak because the response can take
 an unbounded (but finite) amount of time.</p>
 
-<h2>6. What is a <em>partition</em>?</h2>
+<h2>7. What is a <em>partition</em>?</h2>
 
 <p>A partition is when the network fails to deliver some messages to one
 or more nodes by losing them (not by delaying them - eventual delivery
@@ -216,7 +216,7 @@ these are arguably the most likely since all messages may flow through
 one component; if that fails then message loss is usually total
 between two nodes.</p>
 
-<h2>7. Why is CAP true?</h2>
+<h2>8. Why is CAP true?</h2>
 
 <p>The basic idea is that if a client writes to one side of a partition,
 any reads that go to the other side of that partition can't possibly
@@ -231,7 +231,7 @@ gets some press is that this constructed scenario is not completely
 unrealistic. It is not uncommon for a total partition to occur if
 networking equipment should fail.</p>
 
-<h2>8. When does a system have to give up C or A?</h2>
+<h2>9. When does a system have to give up C or A?</h2>
 
 <p>CAP only guarantees that there is <em>some</em> circumstance in which a
 system must give up either C or A. Let's call that circumstance a
@@ -248,7 +248,7 @@ cautious: there's a good chance that you'll realistically hit one of
 these critical conditions, and it's prudent to understand how your
 system will fail to meet either C or A.</p>
 
-<h2>9. Why do some people get annoyed when I characterise my system as CA?</h2>
+<h2>10. Why do some people get annoyed when I characterise my system as CA?</h2>
 
 <p>Brewer's keynote, the Gilbert paper, and many other treatments, places
 C, A and P on an equal footing as desirable properties of an
@@ -277,7 +277,7 @@ databases, for example. These systems aren't generally relevant to the
 contexts in which CAP is most useful. If you describe your distributed
 database as 'CA', you are misunderstanding something.</p>
 
-<h2>10. What about when messages don't get lost?</h2>
+<h2>11. What about when messages don't get lost?</h2>
 
 <p>A perhaps surprising result from the Gilbert paper is that no
 implementation of an atomic register in an asynchronous network can be
@@ -289,7 +289,7 @@ therefore a node cannot wait indefinitely for a response while still
 maintaining availability, however if it responds too early it might be
 inconsistent.</p>
 
-<h2>11. Is my network really asynchronous?</h2>
+<h2>12. Is my network really asynchronous?</h2>
 
 <p>Arguably, yes. Different networks have vastly differing characteristics.</p>
 
@@ -305,12 +305,12 @@ system, where nodes have shared but not synchronised clocks and there
 is a bound on the processing time of every message, that it is still
 impossible to implement available atomic storage.</p>
 
-<p>However, the result from #10 does <em>not</em> hold in the
+<p>However, the result from #11 does <em>not</em> hold in the
 partially-synchronous model; it is possible to implement atomic
 storage that is available all the time, and consistent when all
 messages are delivered.</p>
 
-<h2>12. What, if any, is the relationship between FLP and CAP?</h2>
+<h2>13. What, if any, is the relationship between FLP and CAP?</h2>
 
 <p>The Fischer, Lynch and Patterson theorem ('FLP') (see [1] for a link
 to the paper and a proof explanation) is an extraordinary
@@ -338,7 +338,7 @@ to <em>atomic storage</em>.</li>
 <p>[1] <a href="http://the-paper-trail.org/blog/a-brief-tour-of-flp-impossibility/">http://the-paper-trail.org/blog/a-brief-tour-of-flp-impossibility/</a>
 [2] <a href="http://the-paper-trail.org/blog/flp-and-cap-arent-the-same-thing/">http://the-paper-trail.org/blog/flp-and-cap-arent-the-same-thing/</a></p>
 
-<h2>13. Are C and A 'spectrums'?</h2>
+<h2>14. Are C and A 'spectrums'?</h2>
 
 <p>It is possible to relax both consistency and availability guarantees
 from the strong requirements that CAP imposes and get useful
@@ -356,7 +356,7 @@ high degrees of availability.</p>
 of CAP, you have to start again when it comes to proving an
 impossibility result.</p>
 
-<h2>14. Is a failed machine the same as a partitioned one?</h2>
+<h2>15. Is a failed machine the same as a partitioned one?</h2>
 
 <p>No. A 'failed' machine is usually excused the burden of having to
 respond to client requests. CAP does not allow any machines to fail
@@ -369,7 +369,7 @@ failures. This result has ramifications about the tradeoff between how
 many nodes you write to (which is a performance concern) and how fault
 tolerant you are (which is a reliability concern).</p>
 
-<h2>15. Is a slow machine the same as a partitioned one?</h2>
+<h2>16. Is a slow machine the same as a partitioned one?</h2>
 
 <p>No: messages eventually get delivered to a slow machine, but they
 never get delivered to a totally partitioned one. However, slow
@@ -378,7 +378,7 @@ between lost messages (or failed machines) and a slow machine. This
 difficulty is right at the heart of why CAP, FLP and other results are
 true.</p>
 
-<h2>16. Have I 'got around' or 'beaten' the CAP theorem?</h2>
+<h2>17. Have I 'got around' or 'beaten' the CAP theorem?</h2>
 
 <p>No. You might have designed a system that is not heavily affected by
 it. That's good.</p>
