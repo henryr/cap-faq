@@ -144,34 +144,17 @@ visible. So under EC, you might have:</p>
 <p>But this execution is invalid under atomic consistency. (All
 linearizable histories are eventually consistent, but the converse is not true).</p>
 
-<p>Atomic consistency also ensures that external communication about the
-value of a register is respected. That is, if I read X and tell you
-about it, you can go to the register and read X for yourself. It's
-possible under slightly weaker guarantees (_serializability_ for
-example) for that not to be true. In the following we write A: to mean that client A executes the following operation.</p>
+<p>Linearizability is also stronger than <em>serializability</em>. A set of operations is
+also serializable if the results of the operations are equivalent to a single serial
+order. To achieve serializability or linearizability, an implementation may effectively
+re-order some operations as long as the impression of a single, sequential history is
+preserved. Linearizability restricts the set of operations that may be re-ordered to those
+that are <em>concurrent></em>, which means that their request / response pairs overlap in
+time.</p>
 
-<pre><code>B:set(5), A:set(10), A:get() = 10, B:get() = 10
-</code></pre>
-
-<p>This is an atomic history. But the following is not:</p>
-
-<pre><code>B:set(5), A:set(10), A:get() = 10, B:get() = 5
-</code></pre>
-
-<p>even though it is equivalent to the following serial history:</p>
-
-<pre><code>B:set(5), B:get() = 5, A:set(10), A:get() = 10
-</code></pre>
-
-<p>In the second example, if A tells B about the value of the register
-(10) after it does its get(), B will falsely believe that some
-third-party has written 5 between A:get() and B:get(). If external
-communication isn't allowed, B cannot know about A:set, and so sees a
-consistent view of the register state; it's as if B:get really did
-happen before A:set.</p>
-
-<p>Wikipedia [1] has more information. Maurice Herlihy's original paper
-from 1990 is available at [2].</p>
+<p>To explain in more detail would take up too much space here. Wikipedia [1] has more
+information, and an excellent example (see 'Linearizability vs Serializability'). Maurice
+Herlihy's original paper from 1990 is available at [2].</p>
 
 <p>[1] <a href="http://en.wikipedia.org/wiki/Linearizability">http://en.wikipedia.org/wiki/Linearizability</a>
 [2] <a href="http://cs.brown.edu/%7Emph/HerlihyW90/p463-herlihy.pdf">http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf</a></p>
