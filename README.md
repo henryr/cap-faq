@@ -115,7 +115,7 @@ This is an atomic history. But the following is not:
 
 even though it is equivalent to the following serial history:
 
-    B:set(5), B:get() = 5, A:set(10), B:get() = 10
+    B:set(5), B:get() = 5, A:set(10), A:get() = 10
 
 In the second example, if A tells B about the value of the register
 (10) after it does its get(), B will falsely believe that some
