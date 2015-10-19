@@ -2,7 +2,7 @@
 
     Version 1.0, May 9th 2013
     By: Henry Robinson / henry.robinson@gmail.com / @henryr
-<pre><a href="http:://the-paper-trail.org/">http://the-paper-trail.org/</a></pre>
+<pre><a href="http://the-paper-trail.org/">http://the-paper-trail.org/</a></pre>
 
 ## 0. What is this document?
 
