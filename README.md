@@ -336,3 +336,11 @@ true.
 
 No. You might have designed a system that is not heavily affected by
 it. That's good.
+
+## 18. Modern CAP
+The modern CAP goal should be to maximize combinations of consistency 
+and availability that make sense for the specific application. Such an 
+approach incorporates plans for operation during a partition and for 
+recovery afterward, thus helping designers think about CAP beyond its 
+historically perceived limitations.
+[CAP Twelve Years Later: How the "Rules" Have Changed](http://www.infoq.com/articles/cap-twelve-years-later-how-the-rules-have-changed)
