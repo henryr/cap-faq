@@ -1,3 +1,7 @@
+---
+redirect_to: "http://www.the-paper-trail.org/page/cap-faq"
+---
+
 # The CAP FAQ
 
     Version 1.0, May 9th 2013
