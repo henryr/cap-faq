@@ -43,7 +43,7 @@ in their paper “Brewer's conjecture and the feasibility of consistent,
 available, partition-tolerant web services” [2].
 
 [1] http://www.cs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf
-[2] http://lpd.epfl.ch/sgilbert/pubs/BrewersConjecture-SigAct.pdf
+[2] https://users.ece.cmu.edu/~adrian/731-sp04/readings/GL-cap.pdf
 
 ## 2. What does the CAP Theorem actually say?
 
