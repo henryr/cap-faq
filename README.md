@@ -60,7 +60,7 @@ The next few items define any unfamiliar terms.
 More informally, the CAP theorem tells us that we can't build a
 database that both responds to every request and returns the results
 that you would expect every time. It's an _impossibility_ result - it
-tells us that something we might want to do is actually provably out
+tells us that something we might want to do is actually probably out
 of reach. It's important now because it is directly applicable to the
 many, many distributed systems which have been and are being built in
 the last few years, but it is not a death knell: it does _not_ mean
@@ -80,7 +80,7 @@ operations:
 * set(X) sets the value of the register to X
 * get() returns the last value set in the register
 
-A key-value store can be modelled as a collection of registers. Even
+A key-value store can be modeled as a collection of registers. Even
 though registers appear very simple, they capture the essence of what
 many distributed systems want to do - write data and read it back.
 
