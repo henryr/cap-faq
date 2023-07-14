@@ -294,7 +294,7 @@ from CAP:
 For a bit more on this topic, consult the blog post at [2].
 
 [1] http://the-paper-trail.org/blog/a-brief-tour-of-flp-impossibility/
-[2] http://the-paper-trail.org/blog/flp-and-cap-arent-the-same-thing/
+[2] https://www.the-paper-trail.org/post/2012-03-25-flp-and-cap-arent-the-same-thing/
 
 ## 14. Are C and A 'spectrums'?
 
